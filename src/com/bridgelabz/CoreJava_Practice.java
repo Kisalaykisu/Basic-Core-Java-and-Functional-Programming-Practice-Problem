@@ -1,9 +1,9 @@
-/*    Q-3. Power of 2
-       a. Desc -> This program takes a command-line argument N and prints a table of the
-          powers of 2 that are less than or equal to 2^N.
-       b. I/P -> The Power Value N. Only works if 0 <= N < 31 since 2^31 overflows an int
-       c. Logic -> repeat until i equals N.
-       d. O/P -> Print the year is a Leap Year or not.
+/*    Q-4. Harmonic Number
+          a. Desc -> Prints the Nth harmonic number: 1/1 + 1/2 + ... + 1/N
+              (http://users.encs.concordia.ca/~chvatal/notes/harmonic.html).
+          b. I/P -> The Harmonic Value N. Ensure N != 0
+          c. Logic -> compute 1/1 + 1/2 + 1/3 + ... + 1/N
+          d. O/P -> Print the Nth Harmonic Value.
 */
 package com.bridgelabz;
 
@@ -11,18 +11,21 @@ import java.util.Scanner;  // import Scanner
 
 public class CoreJava_Practice {
     public static void main(String[] args) { // Entry Point of Program
-        int N = power();
+        int N = nthValue();
+        double nthHarmonic = 0;
 
-        while( N < 0 || N > 31){
-            System.out.println("Enter N value between 0 and 31");
-            N = power();
+        while (N==0){
+            System.out.println("Enter a value other than zero.");
+            N = nthValue();
         }
-        for(int i=0;i<=N;i++) {
-            System.out.println("2 power "+ i +" is: " + Math.pow(2, i));
+
+        for(int i=1;i<=N;i++){
+            nthHarmonic+=(double)1/i;
+            System.out.println(i+" th Harmonic Number is 1/"+i+" = "+ nthHarmonic);
         }
     }
-    public static int power(){
-        Scanner scanner = new Scanner(System.in);  // Make scanner Obj
+    public static int nthValue(){
+        Scanner scanner = new Scanner(System.in);  // Make Scanner object
         System.out.println("Enter the value of N: ");
         return scanner.nextInt();
 
