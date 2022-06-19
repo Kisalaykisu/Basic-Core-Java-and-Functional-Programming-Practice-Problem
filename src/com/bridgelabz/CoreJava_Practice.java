@@ -1,4 +1,4 @@
-/* Q-9) Java Program to Check Whether an Alphabet is Vowel or Consonant
+/* Q-10.) Java Program to Find the Largest Among Three Numbers
 */
 package com.bridgelabz;
 
@@ -6,25 +6,24 @@ import java.util.Scanner;  // import Scanner
 
 public class CoreJava_Practice {
     public static void main(String[] args) { // Entry Point of Program
-        boolean is_Vowel=false;    // initialize condition as false
-        Scanner scanner = new Scanner(System.in); // Make Scanner obj
+        Scanner scanner = new Scanner(System.in);  //Make Scanner obj
+        System.out.println("Enter three numbers : ");
+        int num1 = scanner.nextInt();  // INPUT int
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
+        int largestNum = 0;
 
-        System.out.println("Enter the number : ");
-
-        char alphabet = scanner.next().charAt(0);  // Input char
-
-        char[] vowels = {'a','e','i','o','u'};
-
-        for (char item : vowels) {
-            if (alphabet == item) {
-                is_Vowel = true;
-                break;
-            }
+        if (num1>largestNum){
+            largestNum=num1;
         }
-        if (is_Vowel){
-            System.out.println( alphabet + " is a Vowel");
-        }else
-            System.out.println( alphabet + " is a Consonant");
+        if (num2>largestNum){
+            largestNum=num2;
+        }
+        if (num3>largestNum){
+            largestNum=num3;
+        }
+
+        System.out.println("The largest number is = "+largestNum);
 
     }
 }
